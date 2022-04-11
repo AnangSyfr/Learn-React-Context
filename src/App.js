@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import BtnToggle from "./components/BtnToggle";
+import DisplayTheme from "./components/DisplayTheme";
+import Navbar from "./components/Navbar";
+import NavbarUser from "./components/NavbarUser";
+import Setting from "./components/Setting";
+import { AppContext, AppProvider } from "./context/appContext";
+import { ThemeProvider } from "./context/themeContext";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <>
+            <AppProvider>
+                <ThemeProvider>
+                    <Navbar>Test</Navbar> |
+                    <br />
+                    <Navbar>
+                        <NavbarUser />
+                        <Setting />
+                    </Navbar>
+                    <DisplayTheme />
+                    <BtnToggle />
+                </ThemeProvider>
+            </AppProvider>
+        </>
+    );
+};
 
 export default App;
